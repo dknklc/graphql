@@ -1,0 +1,29 @@
+
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: graphql
+  datasource:
+    url: jdbc:h2:mem:database
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  graphql:
+    schema:
+      printer:
+        enabled: true
+    graphiql:
+      enabled: true
+    cors:
+      allowed-methods: true
+      allowed-headers: true
+      allowed-origins: true

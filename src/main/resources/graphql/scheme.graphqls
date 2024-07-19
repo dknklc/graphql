@@ -1,0 +1,33 @@
+scalar DateTime
+
+type User {
+    id: ID
+    username: String
+    mail: String
+    role: Role
+    createdAt: DateTime # graphql does not support some types such as LocalDate. That is why we need to define them as scalar.
+    updatedAt: DateTime
+}
+
+enum Role {
+    USER
+    ADMIN
+}
+
+input UserRequest {
+    id: ID
+    username: String
+    mail: String
+    role: Role
+}
+
+type Query {
+    getAllUsers: [User]
+    getUserById(id: ID!): User
+}
+
+type Mutation {
+    createUser(userRequest: UserRequest!): User
+    updateUser(userRequest: UserRequest!): User
+    deleteUser(id: ID!): Boolean
+}
